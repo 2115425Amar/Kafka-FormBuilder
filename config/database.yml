@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: kafka
+  username: Amar_Gupta
+  password: Admin@123
+  host: localhost
+
