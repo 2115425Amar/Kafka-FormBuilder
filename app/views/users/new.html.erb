@@ -1,32 +1,36 @@
 <!-- app/views/users/new.html.erb -->
-<h1>Send User Data to Kafka</h1>
+<div class="max-w-xl mx-auto mt-10 bg-white p-8 rounded-2xl shadow-md">
+  <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">Send User Data to Kafka</h1>
 
-<%= form_with url: "/users", method: :post, local: true do %>
-  <p>
-    <%= label_tag :first_name %><br>
-    <%= text_field_tag :first_name %>
-  </p>
+  <%= form_with url: "/users", method: :post, local: true, class: "space-y-5" do %>
+    <div>
+      <%= label_tag :first_name, "First Name", class: "block text-sm font-medium text-gray-700" %>
+      <%= text_field_tag :first_name, nil, required: true, class: "mt-1 block w-full rounded-xl border-gray-300 shadow-sm" %>
+    </div>
 
-  <p>
-    <%= label_tag :last_name %><br>
-    <%= text_field_tag :last_name %>
-  </p>
+    <div>
+      <%= label_tag :last_name, "Last Name", class: "block text-sm font-medium text-gray-700" %>
+      <%= text_field_tag :last_name, nil, required: true, class: "mt-1 block w-full rounded-xl border-gray-300 shadow-sm" %>
+    </div>
 
-  <p>
-    <%= label_tag :email %><br>
-    <%= email_field_tag :email %>
-  </p>
+    <div>
+      <%= label_tag :email, "Email", class: "block text-sm font-medium text-gray-700" %>
+      <%= email_field_tag :email, nil, required: true, class: "mt-1 block w-full rounded-xl border-gray-300 shadow-sm" %>
+    </div>
 
-  <p>
-    <%= label_tag :phone %><br>
-    <%= telephone_field_tag :phone %>
-  </p>
+    <div>
+      <%= label_tag :phone, "Phone", class: "block text-sm font-medium text-gray-700" %>
+      <%= telephone_field_tag :phone, nil, required: true, class: "mt-1 block w-full rounded-xl border-gray-300 shadow-sm" %>
+    </div>
 
-  <%= submit_tag "Send to Kafka" %>
-<% end %>
+    <div>
+      <%= submit_tag "Send to Kafka", class: "w-full py-2 px-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700" %>
+    </div>
+  <% end %>
 
-<% if flash[:notice] %>
-  <p style="color: green"><%= flash[:notice] %></p>
-<% elsif flash[:alert] %>
-  <p style="color: red"><%= flash[:alert] %></p>
-<% end %>
+  <% if flash[:notice] %>
+    <p class="mt-4 text-green-600 font-semibold text-center"><%= flash[:notice] %></p>
+  <% elsif flash[:alert] %>
+    <p class="mt-4 text-red-600 font-semibold text-center"><%= flash[:alert] %></p>
+  <% end %>
+</div>

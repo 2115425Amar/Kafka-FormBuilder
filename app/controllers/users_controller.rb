@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
       producer = Rdkafka::Config.new(config).producer
 
-      # Produce and deliver message
+      # Produce and deliver messageamar8
       delivery_handle = producer.produce(
         topic:   "test-topic",
         payload: message
